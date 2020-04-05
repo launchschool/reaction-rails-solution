@@ -10,7 +10,7 @@ const lists = (state = [], action) => {
         return listWithoutCards;
       });
       let filteredLists = state.filter(
-        list => list.boardId !== action.board.id
+        list => list.board_id !== action.board.id
       );
       return filteredLists.concat(listsWithoutCards);
     case types.CREATE_LIST_SUCCESS:

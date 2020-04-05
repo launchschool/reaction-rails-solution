@@ -141,7 +141,6 @@ const apiClient = {
   //     .catch(logError);
   // },
   getBoards: function(callback) {
-    console.log("in get board")
     return axios.get(routes.BOARDS_INDEX_URL)
       .then(unwrapData)
       .then(callback)
