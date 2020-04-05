@@ -8,10 +8,10 @@ const CardLocationForm = props => (
       <label>Board</label>
       <select onChange={props.onBoardChange} value={props.selectedBoardId}>
         {props.boards.map(board => {
-          const selected = board._id === props.currentBoardId;
+          const selected = board.id === props.currentBoardId;
 
           return (
-            <option value={board._id} key={board._id}>
+            <option value={board.id} key={board.id}>
               {board.title}
               {selected ? " (current)" : ""}
             </option>
@@ -26,10 +26,10 @@ const CardLocationForm = props => (
         <label>List</label>
         <select onChange={props.onListChange} value={props.selectedListId}>
           {props.lists.map(list => {
-            const selected = list._id === props.currentListId;
+            const selected = list.id === props.currentListId;
 
             return (
-              <option value={list._id} key={list._id}>
+              <option value={list.id} key={list.id}>
                 {list.title}
                 {selected ? " (current)" : ""}
               </option>

@@ -33,7 +33,7 @@ class Board extends React.Component {
         <div>
           <BoardHeader title={this.props.board.title} />
           <main>
-            <ListContainer boardId={this.props.board._id} />
+            <ListContainer boardId={this.props.board.id} />
           </main>
         </div>
       );

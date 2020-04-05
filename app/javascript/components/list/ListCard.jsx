@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ListCard = ({ _id, title, labels, description }) => {
+const ListCard = ({ id, title, labels, description }) => {
   return (
-    <Link to={`/cards/${_id}`} data-card-id={_id}>
+    <Link to={`/cards/${id}`} data-card-id={id}>
       <div className="card-background">
         <div className="card ">
           <i className="edit-toggle edit-icon sm-icon"></i>

@@ -12,9 +12,13 @@ export function createCommentSuccess(comment) {
 export function createComment(token, cardId, text, callback) {
   return function(dispatch) {
     dispatch(createCommentRequest());
-    apiClient.createComment(token, cardId, text, data => {
-      dispatch(createCommentSuccess(data.comment));
-      if (callback) callback(data.comment);
+    // apiClient.createComment(token, cardId, text, data => {
+    //   dispatch(createCommentSuccess(data.comment));
+    //   if (callback) callback(data.comment);
+    // });
+    apiClient.createComment(cardId, {text}, newComment => {
+      dispatch(createCommentSuccess(newComment));
+      if (callback) callback(newComment);
     });
   };
 }

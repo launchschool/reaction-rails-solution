@@ -9,7 +9,7 @@ export default function boards(state = [], action) {
       return state.concat(newBoard);
     case types.FETCH_BOARD_SUCCESS:
       const excludedBoards = state.filter(
-        board => board._id !== action.board._id
+        board => board.id !== action.board.id
       );
       const { lists, ...newBoardWithoutLists } = action.board;
 

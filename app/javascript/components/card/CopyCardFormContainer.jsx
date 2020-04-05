@@ -8,7 +8,7 @@ import * as cardSelectors from "../../selectors/CardSelectors";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    comments: commentSelectors.cardComments(state, ownProps.card._id),
+    comments: commentSelectors.cardComments(state, ownProps.card.id),
     state: state
   };
 };
@@ -69,7 +69,7 @@ class CopyCardFormContainer extends React.Component {
       {
         title: this.state.title,
         position: calculatePosition(listCards, position),
-        copyFrom: this.props.card._id,
+        copyFrom: this.props.card.id,
         keep: {
           comments: this.state.keepComments
         }

@@ -9,7 +9,7 @@ const ListCards = ({ cards }) => {
   return (
     <div id="cards-container">
       {sortedCards(cards).map(card => {
-        return <ListCard key={card._id} {...card} />;
+        return <ListCard key={card.id} {...card} />;
       })}
     </div>
   );

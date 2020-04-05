@@ -5,6 +5,7 @@ import * as actions from "../../actions/CardActions";
 
 const mapStateToProps = (state, ownProps) => {
   const boardId = ownProps.boardId;
+  console.log("state in lists", state)
   return {
     lists: listSelectors.boardListsSelector(state, boardId),
     state: state

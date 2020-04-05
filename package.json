@@ -15,20 +15,26 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "flush-promises": "^1.0.2",
+    "formik": "^2.1.4",
     "jest": "^24.9.0",
     "jquery": "^3.4.1",
+    "jwt-decode": "^2.2.0",
     "minimist": "^1.2.5",
+    "moment": "^2.24.0",
+    "pikaday": "^1.8.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-dragula": "^1.1.17",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "resolve-url-loader": "^3.1.0",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "yup": "^0.28.3"
   },
   "resolutions": {
     "serialize-javascript": "^2.1.1"

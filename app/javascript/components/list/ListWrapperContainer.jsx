@@ -40,7 +40,7 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
       const newPosition = calculatePosition(lists, targetIndex, sourceIndex);
       let token = localStorage.getItem("jwtToken");
       dispatchProps.dispatch(
-        actions.updateList(token, ownProps._id, {
+        actions.updateList(token, ownProps.id, {
           position: newPosition
         })
       );

@@ -21,39 +21,39 @@ import AuthRoute from "./shared/AuthRoute";
 import { checkAuth } from "../utils/helpers";
 
 class Application extends React.Component {
-  state = {
-    redirect: false,
-  };
+  // state = {
+  //   redirect: false,
+  // };
 
-  componentDidMount() {
-    if (checkAuth()) {
-      return;
-    }
-    this.props.onLogout();
-  }
+  // componentDidMount() {
+  //   if (checkAuth()) {
+  //     return;
+  //   }
+  //   this.props.onLogout();
+  // }
 
-  componentDidUpdate(prevProps) {
-    let logoutTimer;
+  // componentDidUpdate(prevProps) {
+  //   let logoutTimer;
 
-    if (
-      prevProps.isLoggedIn !== this.props.isLoggedIn &&
-      this.props.isLoggedIn
-    ) {
-      logoutTimer = setTimeout(this.props.onLogout, 1000 * 60 * 60);
-      this.setState({ redirect: true });
-    } else if (
-      prevProps.isLoggedIn !== this.props.isLoggedIn &&
-      !this.props.isLoggedIn
-    ) {
-      this.setState({ redirect: false });
-    } else if (!this.props.token) {
-      clearTimeout(logoutTimer);
-    }
-  }
+  //   if (
+  //     prevProps.isLoggedIn !== this.props.isLoggedIn &&
+  //     this.props.isLoggedIn
+  //   ) {
+  //     logoutTimer = setTimeout(this.props.onLogout, 1000 * 60 * 60);
+  //     this.setState({ redirect: true });
+  //   } else if (
+  //     prevProps.isLoggedIn !== this.props.isLoggedIn &&
+  //     !this.props.isLoggedIn
+  //   ) {
+  //     this.setState({ redirect: false });
+  //   } else if (!this.props.token) {
+  //     clearTimeout(logoutTimer);
+  //   }
+  // }
   render() {
-    if (!this.props.isLoggedIn && this.state.redirect) {
-      return <Redirect to="/login" />;
-    }
+    // if (!this.props.isLoggedIn && this.state.redirect) {
+    //   return <Redirect to="/login" />;
+    // }
     return (
       <div>
         <TopNav
@@ -62,28 +62,21 @@ class Application extends React.Component {
           onLogout={this.props.onLogout}
         />
         <Route path="/login" exact component={LoginContainer} />
-        <AuthRoute exact path="/" component={BoardsDashboardContainer} />
+        {/* <AuthRoute exact path="/" component={BoardsDashboardContainer} />
         <AuthRoute
           exact
           path="/(boards|cards)/:id"
           component={BoardContainer}
-        />
-        <AuthRoute exact path="/cards/:id" component={CardModalContainer} />
-        <Route path="/signup" component={SignupContainer} />
-        <Route path="/ui" exact component={UISection} />
-        <Route path="/ui/allBoards" component={AllBoards} />
-        <Route path="/ui/cardArchived" component={CardArchived} />
+        /> */}
+        <Route exact path="/" component={BoardsDashboardContainer} />
         <Route
-          path="/ui/cardEditingDescription"
-          component={CardEditingDescription}
+          exact
+          path="/(boards|cards)/:id"
+          component={BoardContainer}
         />
-        <Route path="/ui/card" component={Card} />
-        <Route path="/ui/copyCardPopover" component={CopyCardPopover} />
-        <Route path="/ui/createBoard" component={CreateBoard} />
-        <Route path="/ui/dueDatePopover" component={DueDatePopover} />
-        <Route path="/ui/labelsPopover" component={LabelsPopover} />
-        <Route path="/ui/moveCardPopover" component={MoveCardPopover} />
-        <Route path="/ui/singleBoard" component={SingleBoard} />
+        {/* <AuthRoute exact path="/cards/:id" component={CardModalContainer} /> */}
+        <Route exact path="/cards/:id" component={CardModalContainer} />
+        <Route path="/signup" component={SignupContainer} />
       </div>
     );
   }

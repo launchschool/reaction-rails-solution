@@ -23,10 +23,16 @@ export function updateListSuccess(listId, newList) {
 export function createList(token, boardId, title, position, callback) {
   return function(dispatch) {
     dispatch(createListRequest());
-    apiClient.createList(token, boardId, title, position, data => {
-      dispatch(createListSuccess(data.list));
+    // apiClient.createList(token, boardId, title, position, data => {
+    //   dispatch(createListSuccess(data.list));
+    //   if (callback) {
+    //     callback(data.list);
+    //   }
+    // });
+    apiClient.createList(boardId, {title, position},  newList => {
+      dispatch(createListSuccess(newList));
       if (callback) {
-        callback(data.list);
+        callback(newList);
       }
     });
   };
@@ -35,10 +41,16 @@ export function createList(token, boardId, title, position, callback) {
 export function updateList(token, listId, list, callback) {
   return function(dispatch) {
     dispatch(updateListRequest());
-    apiClient.updateList(token, listId, list, data => {
-      dispatch(updateListSuccess(listId, data.list));
+    // apiClient.updateList(token, listId, list, data => {
+    //   dispatch(updateListSuccess(listId, data.list));
+    //   if (callback) {
+    //     callback(data.list);
+    //   }
+    // });
+    apiClient.updateList(listId, list, updatedList => {
+      dispatch(updateListSuccess(listId, updatedList));
       if (callback) {
-        callback(data.list);
+        callback(updatedList);
       }
     });
   };

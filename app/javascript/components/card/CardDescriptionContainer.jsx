@@ -14,7 +14,7 @@ class CardDescriptionContainer extends React.Component {
   handleSaveDescription = () => {
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.props.card._id,
+      this.props.card.id,
       {
         description: this.state.description
       },

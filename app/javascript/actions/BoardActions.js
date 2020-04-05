@@ -29,7 +29,7 @@ export function fetchBoards(token) {
   return function(dispatch) {
     dispatch(fetchBoardsRequest());
     apiClient.getBoards(
-      token,
+      // token,
       boards => {
         dispatch(fetchBoardsSuccess(boards));
       },
@@ -44,7 +44,14 @@ export function fetchBoards(token) {
 export function createBoard(token, board, callback) {
   return function(dispatch) {
     dispatch(createBoardRequest());
-    apiClient.createBoard(token, board, newBoard => {
+    // apiClient.createBoard(token, board, newBoard => {
+    //   dispatch(createBoardSuccess(newBoard));
+
+    //   if (callback) {
+    //     callback(newBoard);
+    //   }
+    // });
+    apiClient.createBoard(board, newBoard => {
       dispatch(createBoardSuccess(newBoard));
 
       if (callback) {
@@ -57,7 +64,13 @@ export function createBoard(token, board, callback) {
 export function fetchBoard(token, id, callback) {
   return function(dispatch) {
     dispatch(fetchBoardRequest());
-    apiClient.getBoard(token, id, board => {
+    // apiClient.getBoard(token, id, board => {
+    //   dispatch(fetchBoardSuccess(board));
+    //   if (callback) {
+    //     callback(board);
+    //   }
+    // });
+    apiClient.getBoard(id, board => {
       dispatch(fetchBoardSuccess(board));
       if (callback) {
         callback(board);

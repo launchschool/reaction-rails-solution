@@ -10,14 +10,14 @@ const lists = (state = [], action) => {
         return listWithoutCards;
       });
       let filteredLists = state.filter(
-        list => list.boardId !== action.board._id
+        list => list.boardId !== action.board.id
       );
       return filteredLists.concat(listsWithoutCards);
     case types.CREATE_LIST_SUCCESS:
       return state.concat(action.payload.list);
     case types.UPDATE_LIST_SUCCESS:
       return state.map(list => {
-        if (list._id === action.payload.listId) {
+        if (list.id === action.payload.listId) {
           return Object.assign({}, list, {
             title: action.payload.newList.title,
             position: action.payload.newList.position

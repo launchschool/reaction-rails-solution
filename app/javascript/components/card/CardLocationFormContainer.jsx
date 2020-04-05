@@ -54,7 +54,7 @@ class CardLocationFormContainer extends React.Component {
     this.setState(
       {
         selectedBoard: this.props.boards.find(board => {
-          return board._id === this.props.card.boardId;
+          return board.id === this.props.card.boardId;
         }),
         selectedPosition: this.currentCardPositionIndex(),
         boards: this.props.boards,
@@ -75,7 +75,7 @@ class CardLocationFormContainer extends React.Component {
   currentCardPositionIndex = () => {
     const cards = this.props.cards;
     let currentPosition = cards.findIndex(
-      card => card._id === this.props.card._id
+      card => card.id === this.props.card.id
     );
     if (currentPosition === -1) currentPosition = undefined;
 
@@ -101,10 +101,10 @@ class CardLocationFormContainer extends React.Component {
           lists: newLists
         },
         () => {
-          if (this.state.selectedBoard._id === this.props.card.boardId) {
+          if (this.state.selectedBoard.id === this.props.card.boardId) {
             this.selectList(this.props.card.listId);
           } else if (newLists.length) {
-            this.selectList(newLists[0]._id);
+            this.selectList(newLists[0].id);
           } else {
             this.selectList();
           }
@@ -131,8 +131,8 @@ class CardLocationFormContainer extends React.Component {
         },
         () => {
           this.props.onLocationChange({
-            boardId: this.state.selectedBoard && this.state.selectedBoard._id,
-            listId: this.state.selectedList && this.state.selectedList._id,
+            boardId: this.state.selectedBoard && this.state.selectedBoard.id,
+            listId: this.state.selectedList && this.state.selectedList.id,
             position: this.state.selectedPosition
           });
         }
@@ -144,8 +144,8 @@ class CardLocationFormContainer extends React.Component {
         },
         () => {
           this.props.onLocationChange({
-            boardId: this.state.selectedBoard && this.state.selectedBoard._id,
-            listId: this.state.selectedList && this.state.selectedList._id,
+            boardId: this.state.selectedBoard && this.state.selectedBoard.id,
+            listId: this.state.selectedList && this.state.selectedList.id,
             position: this.state.selectedPosition
           });
         }
@@ -157,17 +157,17 @@ class CardLocationFormContainer extends React.Component {
     let list;
     const positions = [];
     if (id) {
-      list = this.state.lists.find(list => list._id === id);
+      list = this.state.lists.find(list => list.id === id);
     } else {
       list = this.state.lists[0];
     }
 
     if (list) {
       const cards = cardSelectors
-        .listCards(this.props.state, list._id)
+        .listCards(this.props.state, list.id)
         .sort((a, b) => a.position - b.position);
       let currentPosition = cards.findIndex(
-        card => card._id === this.props.card._id
+        card => card.id === this.props.card.id
       );
       if (currentPosition === -1) currentPosition = undefined;
 
@@ -191,8 +191,8 @@ class CardLocationFormContainer extends React.Component {
       },
       () => {
         if (
-          this.state.selectedBoard._id === this.props.card.boardId &&
-          this.state.selectedList._id === this.props.card.listId &&
+          this.state.selectedBoard.id === this.props.card.boardId &&
+          this.state.selectedList.id === this.props.card.listId &&
           this.props.mode !== "copy"
         ) {
           this.selectPosition(this.currentCardPositionIndex());
@@ -221,7 +221,7 @@ class CardLocationFormContainer extends React.Component {
 
   selectedBoardId = () => {
     if (this.state.selectedBoard) {
-      return this.state.selectedBoard._id;
+      return this.state.selectedBoard.id;
     } else {
       return undefined;
     }
@@ -237,7 +237,7 @@ class CardLocationFormContainer extends React.Component {
 
   selectedListId = () => {
     if (this.state.selectedList) {
-      return this.state.selectedList._id;
+      return this.state.selectedList.id;
     } else {
       return undefined;
     }

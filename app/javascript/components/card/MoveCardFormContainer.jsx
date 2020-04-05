@@ -54,12 +54,12 @@ class MoveCardFormContainer extends Component {
     const changingBoard = boardId !== sourceBoardId;
 
     const currentIndex = listCards.findIndex(
-      card => card._id === this.props.card._id
+      card => card.id === this.props.card.id
     );
 
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.props.card._id,
+      this.props.card.id,
       {
         listId: listId,
         position: calculatePosition(listCards, position, currentIndex)

@@ -22,7 +22,7 @@ const CardModal = props => {
   if (props.card) {
     comments = props.comments.map(comment =>
       comment.isAction ? (
-        <li key={`action_${comment._id}`}>
+        <li key={`action_${comment.id}`}>
           <div className="member-container">
             <div className="card-member small-size">VR</div>
           </div>
@@ -33,7 +33,7 @@ const CardModal = props => {
           </p>
         </li>
       ) : (
-        <li key={`comment_${comment._id}`}>
+        <li key={`comment_${comment.id}`}>
           <div className="member-container">
             <div className="card-member">TP</div>
           </div>
@@ -54,7 +54,7 @@ const CardModal = props => {
     <div id="modal-container">
       <div className="screen"></div>
       <div id="modal">
-        <Link to={`/boards/${props.card.boardId}`}>
+        <Link to={`/boards/${props.card.board_id}`}>
           {" "}
           <i className="x-icon icon close-modal"></i>
         </Link>
@@ -131,7 +131,7 @@ const CardModal = props => {
             </li>
             <li className="comment-section">
               <NewCommentFormContainer
-                cardId={props.card._id}
+                cardId={props.card.id}
                 onSubmit={props.onCreateComment}
                 user={props.user}
               />

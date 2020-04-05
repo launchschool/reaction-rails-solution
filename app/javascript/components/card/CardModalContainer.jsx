@@ -12,9 +12,9 @@ import CopyCardFormContainer from "./CopyCardFormContainer";
 import MoveCardFormContainer from "./MoveCardFormContainer";
 
 const mapStateToProps = (state, ownProps) => {
-  const cardId = ownProps.match.params.id;
-  const card = state.cards.find(card => card._id === cardId);
-  const list = state.lists.find(list => list._id === card.listId);
+  const cardId = +ownProps.match.params.id;
+  const card = state.cards.find(card => card.id === cardId);
+  const list = state.lists.find(list => list.id === card.list_id);
   const comments = commentSelectors.cardCommentsAndActions(
     state,
     cardId,
@@ -31,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onFetchCard: token =>
-      dispatch(actions.fetchCard(token, ownProps.match.params.id)),
+      dispatch(actions.fetchCard(token, +ownProps.match.params.id)),
     onUpdateCard: (token, id, attrs, callback) => {
       dispatch(actions.updateCard(token, id, attrs, callback));
     },
@@ -76,7 +76,7 @@ class CardModalContainer extends React.Component {
 
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.state.card._id,
+      this.state.card.id,
       {
         title: this.state.title
       }
@@ -93,7 +93,7 @@ class CardModalContainer extends React.Component {
   handleToggleArchive = () => {
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.props.card._id,
+      this.props.card.id,
       {
         archived: !this.props.card.archived
       }
@@ -105,7 +105,7 @@ class CardModalContainer extends React.Component {
     e.stopPropagation();
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.props.card._id,
+      this.props.card.id,
       {
         completed: !this.state.card.completed
       }
@@ -148,7 +148,7 @@ class CardModalContainer extends React.Component {
 
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.state.card._id,
+      this.state.card.id,
       { dueDate: moment(dateTime, "M/D/YYYY h:mm A").toISOString() },
       () => {
         this.onClosePopover();
@@ -160,7 +160,7 @@ class CardModalContainer extends React.Component {
     e.preventDefault();
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.state.card._id,
+      this.state.card.id,
       { dueDate: null, completed: false },
       () => {
         this.onClosePopover();
@@ -180,7 +180,7 @@ class CardModalContainer extends React.Component {
 
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
-      this.state.card._id,
+      this.state.card.id,
       {
         labels
       }
@@ -190,7 +190,7 @@ class CardModalContainer extends React.Component {
   handleDeleteCard = e => {
     this.props.onDeleteCard(
       localStorage.getItem("jwtToken"),
-      this.props.card._id
+      this.props.card.id
     );
   };
 

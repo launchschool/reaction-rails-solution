@@ -11,14 +11,14 @@ class ListWrapper extends React.Component {
     return (
       <div
         className={classList}
-        data-list-id={this.props._id}
+        data-list-id={this.props.id}
         onDrop={this.props.onDrop}
       >
         <div className="list-background">
           <div className="list">
             <a className="more-icon sm-icon" href=""></a>
             <EditableListTitleContainer
-              listId={this.props._id}
+              listId={this.props.id}
               title={this.props.title}
             />
             <div className="add-dropdown add-top">
@@ -29,9 +29,9 @@ class ListWrapper extends React.Component {
                 <span>...</span>
               </div>
             </div>
-            <ListCardsContainer listId={this.props._id} />
+            <ListCardsContainer listId={this.props.id} />
             <ToggleableAddCardContainer
-              listId={this.props._id}
+              listId={this.props.id}
               openedAddCard={this.props.addCardActive}
               onAddCardClick={this.props.onAddCardClick}
               onAddCardClose={this.props.onAddCardClose}

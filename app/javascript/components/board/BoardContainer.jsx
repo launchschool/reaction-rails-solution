@@ -8,18 +8,18 @@ const mapStateToProps = (state, ownProps) => {
   let card;
   const { url } = ownProps.match;
   if (url.match(new RegExp("^/boards/"))) {
-    boardId = ownProps.match.params.id;
+    boardId = +ownProps.match.params.id;
   } else {
-    card = state.cards.find(card => card._id === ownProps.match.params.id);
+    card = state.cards.find(card => card.id === +ownProps.match.params.id);
     if (card) {
-      boardId = card.boardId;
+      boardId = card.board_id;
     } else {
       boardId = null;
     }
   }
   if (boardId) {
     return {
-      board: state.boards.find(board => board._id === boardId),
+      board: state.boards.find(board => board.id === boardId),
       card: card,
       boardId: boardId,
       user: state.user,

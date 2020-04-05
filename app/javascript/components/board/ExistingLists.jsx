@@ -42,7 +42,7 @@ class ExistingLists extends React.Component {
         .slice()
         .sort((a, b) => a.position - b.position);
       let sourceIndex = sortedStartingCards.findIndex(
-        card => card._id === cardId
+        card => card.id === cardId
       );
       if (sourceIndex === -1) sourceIndex = null;
 
@@ -104,9 +104,9 @@ class ExistingLists extends React.Component {
       >
         {this.sortedLists().map(list => (
           <ListWrapperContainer
-            key={list._id}
+            key={list.id}
             {...list}
-            addCardActive={this.state.addCardActiveListId === list._id}
+            addCardActive={this.state.addCardActiveListId === list.id}
             onAddCardClick={this.handleAddCardClick}
             onAddCardClose={this.handleAddCardClose}
           />
