@@ -10,7 +10,6 @@ export function cardComments(state, cardId, sortFunction) {
 
 export function cardCommentsAndActions(state, cardId, sortFunction) {
   const comments = cardComments(state, cardId);
-  console.log("in selectors", state);
   const actions = state.actions
     .filter(action => {
       return action.card_id === cardId;

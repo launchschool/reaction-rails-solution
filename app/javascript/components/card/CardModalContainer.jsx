@@ -20,7 +20,6 @@ const mapStateToProps = (state, ownProps) => {
     cardId,
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
   );
-  console.log(comments);
   return {
     card,
     list,
@@ -150,7 +149,7 @@ class CardModalContainer extends React.Component {
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
       this.state.card.id,
-      { dueDate: moment(dateTime, "M/D/YYYY h:mm A").toISOString() },
+      { due_date: moment(dateTime, "M/D/YYYY h:mm A").toISOString() },
       () => {
         this.onClosePopover();
       }
@@ -162,7 +161,7 @@ class CardModalContainer extends React.Component {
     this.props.onUpdateCard(
       localStorage.getItem("jwtToken"),
       this.state.card.id,
-      { dueDate: null, completed: false },
+      { due_date: null, completed: false },
       () => {
         this.onClosePopover();
       }
@@ -203,7 +202,7 @@ class CardModalContainer extends React.Component {
         case "due-date":
           return (
             <DueDateForm
-              dueDate={this.state.card.dueDate}
+              dueDate={this.state.card.due_date}
               onClose={this.handleClosePopover}
               onSubmit={this.handleDueDateSubmit}
               onRemove={this.handleDueDateRemove}

@@ -3,6 +3,7 @@ import Pikaday from "pikaday";
 import moment from "moment";
 
 class DueDateForm extends React.Component {
+
   defaultMoment = () => {
     if (this.props.dueDate) {
       return moment(this.props.dueDate);

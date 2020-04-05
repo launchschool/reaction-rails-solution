@@ -17,7 +17,7 @@ const CardModal = props => {
       </div>
     ));
   const dueDateClass = dueClass(props.card);
-  const formattedDueDate = formatDueDate(props.card.dueDate);
+  const formattedDueDate = formatDueDate(props.card.due_date);
   let comments;
   if (props.card) {
     comments = props.comments.map(comment =>
@@ -102,7 +102,7 @@ const CardModal = props => {
                     </div>
                   </li>
                 ) : null}
-                {props.card.dueDate ? (
+                {props.card.due_date ? (
                   <li className="due-date-section">
                     <h3>Due Date</h3>
                     <div
