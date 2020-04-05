@@ -17,21 +17,50 @@ export function createBoardSuccess(board) {
   return { type: types.CREATE_BOARD_SUCCESS, board: board };
 }
 
-export function fetchBoards() {
+export function fetchBoardRequest() {
+  return { type: types.FETCH_BOARD_REQUEST };
+}
+
+export function fetchBoardSuccess(board) {
+  return { type: types.FETCH_BOARD_SUCCESS, board };
+}
+
+export function fetchBoards(token) {
   return function(dispatch) {
     dispatch(fetchBoardsRequest());
-    apiClient.getBoards(boards => dispatch(fetchBoardsSuccess(boards)));
+    apiClient.getBoards(
+      token,
+      boards => {
+        dispatch(fetchBoardsSuccess(boards));
+      },
+      () => {
+        localStorage.removeItem("jwtToken");
+        localStorage.removeItem("user");
+      }
+    );
   };
 }
 
-export function createBoard(board, callback) {
+export function createBoard(token, board, callback) {
   return function(dispatch) {
     dispatch(createBoardRequest());
-    apiClient.createBoard(board, newBoard => {
+    apiClient.createBoard(token, board, newBoard => {
       dispatch(createBoardSuccess(newBoard));
 
       if (callback) {
         callback(newBoard);
+      }
+    });
+  };
+}
+
+export function fetchBoard(token, id, callback) {
+  return function(dispatch) {
+    dispatch(fetchBoardRequest());
+    apiClient.getBoard(token, id, board => {
+      dispatch(fetchBoardSuccess(board));
+      if (callback) {
+        callback(board);
       }
     });
   };

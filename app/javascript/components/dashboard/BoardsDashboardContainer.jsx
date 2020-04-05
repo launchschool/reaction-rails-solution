@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchBoards: () => {
-      dispatch(actions.fetchBoards());
+    onFetchBoards: token => {
+      dispatch(actions.fetchBoards(token));
     }
   };
 };
@@ -27,9 +27,12 @@ class BoardsDashboardContainer extends React.Component {
       type: null
     }
   };
+
   componentDidMount() {
-    this.props.onFetchBoards();
+    let token = localStorage.getItem("jwtToken");
+    this.props.onFetchBoards(token);
   }
+
   handleNewBoardClick = e => {
     this.setState({
       popover: {
