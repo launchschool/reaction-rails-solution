@@ -35,6 +35,7 @@ export function login(user, callback) {
   return function(dispatch) {
     dispatch(loginRequest());
     apiClient.login(user, data => {
+      if (data.failure) return;
       populatedStorage(data);
       dispatch(loginSuccess(data));
       if (callback) callback();
