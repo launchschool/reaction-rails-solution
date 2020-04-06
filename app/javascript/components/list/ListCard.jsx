@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { dueClass, formatDueDate } from "../../utils/helpers";
 
-const ListCard = ({ id, title, labels, description }) => {
+const ListCard = ({ id, title, labels, description, due_date, comments_count, completed }) => {
+  const dueDateClass = due_date ?  ` ${dueClass(due_date)}` : "";
+  const formattedDueDate = formatDueDate(due_date)
+  const completedClass = completed ? " completed" : "";
   return (
     <Link to={`/cards/${id}`} data-card-id={id}>
       <div className="card-background">
@@ -20,6 +24,8 @@ const ListCard = ({ id, title, labels, description }) => {
           </div>
           <div className="card-icons">
             {description ? <i className="description-icon sm-icon"></i> : null}
+            {due_date ? <i className={`clock-icon sm-icon${dueDateClass}${completedClass}`}>{formattedDueDate}</i> : null}
+            {comments_count > 0 ? <i className="comment-icon sm-icon"></i> : null}
           </div>
         </div>
       </div>

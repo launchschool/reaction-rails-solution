@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
   const comments = commentSelectors.cardCommentsAndActions(
     state,
     cardId,
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
   return {
     card,

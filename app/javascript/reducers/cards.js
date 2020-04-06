@@ -29,6 +29,15 @@ const cards = (state = [], action) => {
       );
       const card = action.payload.card;
       return excludedCards.concat(card);
+    case types.CREATE_COMMENT_SUCCESS:
+      let newState = state.map(card => {
+        if (card.id === action.payload.comment.card_id) {
+          return Object.assign({}, card, {comments_count: card.comments_count + 1})
+        } else {
+          return card;
+        }
+      })
+      return newState;
     case types.UPDATE_CARD_SUCCESS:
       return state.map(card => {
         if (card.id === action.payload.card.id) return action.payload.card;
@@ -41,6 +50,7 @@ const cards = (state = [], action) => {
         }
         return null;
       });
+
     default:
       return state;
   }

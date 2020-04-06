@@ -13480,3 +13480,1141 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 14ms (Views: 3.1ms | ActiveRecord: 4.0ms | Allocations: 7522)
 
 
+Started GET "/ui" for ::1 at 2020-04-07 00:40:52 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UiController#index as HTML
+  Rendering ui/index.html.erb within layouts/static
+  Rendered ui/index.html.erb within layouts/static (Duration: 0.9ms | Allocations: 897)
+Completed 200 OK in 1085ms (Views: 1081.1ms | ActiveRecord: 0.0ms | Allocations: 1822930)
+
+
+Started GET "/ui" for ::1 at 2020-04-07 00:40:53 +0200
+Processing by UiController#index as HTML
+  Rendering ui/index.html.erb within layouts/static
+  Rendered ui/index.html.erb within layouts/static (Duration: 0.5ms | Allocations: 553)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 13044)
+
+
+Started GET "/ui/single_board" for ::1 at 2020-04-07 00:40:58 +0200
+Processing by UiController#single_board as HTML
+  Rendering ui/single_board.html.erb within layouts/static
+  Rendered ui/single_board.html.erb within layouts/static (Duration: 0.7ms | Allocations: 342)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms | Allocations: 12905)
+
+
+Started GET "/images/admin-badge.png" for ::1 at 2020-04-07 00:40:58 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/images/admin-badge.png"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-04-07 00:47:16 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 74)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3255ms (Views: 3253.7ms | ActiveRecord: 0.0ms | Allocations: 12822)
+
+
+Started GET "/api/boards" for ::1 at 2020-04-07 00:47:20 +0200
+Processing by Api::BoardsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 9.0ms | Allocations: 3967)
+Completed 200 OK in 31ms (Views: 8.4ms | ActiveRecord: 8.1ms | Allocations: 14355)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:47:21 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 45.3ms | Allocations: 24680)
+Completed 200 OK in 52ms (Views: 35.7ms | ActiveRecord: 11.1ms | Allocations: 27006)
+
+
+Started GET "/boards/1" for ::1 at 2020-04-07 00:48:02 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"1"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3260ms (Views: 3259.5ms | ActiveRecord: 0.0ms | Allocations: 11824)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:48:06 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 13.7ms | Allocations: 5701)
+Completed 200 OK in 19ms (Views: 11.9ms | ActiveRecord: 3.1ms | Allocations: 7783)
+
+
+Started GET "/boards/1" for ::1 at 2020-04-07 00:48:36 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"1"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 4289ms (Views: 4285.1ms | ActiveRecord: 0.0ms | Allocations: 1818911)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:48:41 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.7ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 52.7ms | Allocations: 26264)
+Completed 200 OK in 79ms (Views: 40.7ms | ActiveRecord: 21.4ms | Allocations: 40228)
+
+
+Started GET "/api/cards/1" for ::1 at 2020-04-07 00:48:43 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 22.2ms | Allocations: 9422)
+Completed 200 OK in 29ms (Views: 20.1ms | ActiveRecord: 4.9ms | Allocations: 12261)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:48:48 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"completed"=>true}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mAction Create (0.6ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", " marked the due date complete"], ["actionable_type", "Card"], ["actionable_id", 1], ["created_at", "2020-04-06 22:48:48.403536"], ["updated_at", "2020-04-06 22:48:48.403536"]]
+  ↳ app/controllers/api/cards_controller.rb:101:in `create_actions'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "completed" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["completed", true], ["updated_at", "2020-04-06 22:48:48.405833"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 3.6ms | Allocations: 3019)
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 34ms (Views: 3.8ms | ActiveRecord: 5.1ms | Allocations: 10100)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:48:49 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"completed"=>false}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mAction Create (0.3ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", " marked the due date incomplete"], ["actionable_type", "Card"], ["actionable_id", 1], ["created_at", "2020-04-06 22:48:49.238248"], ["updated_at", "2020-04-06 22:48:49.238248"]]
+  ↳ app/controllers/api/cards_controller.rb:101:in `create_actions'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "completed" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["completed", false], ["updated_at", "2020-04-06 22:48:49.239943"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 3.6ms | Allocations: 3082)
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 16ms (Views: 3.6ms | ActiveRecord: 3.1ms | Allocations: 9573)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:48:53 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"description"=>"desc"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "description" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["description", "desc"], ["updated_at", "2020-04-06 22:48:53.532125"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 3.8ms | Allocations: 3065)
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 16ms (Views: 3.8ms | ActiveRecord: 4.2ms | Allocations: 8331)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 00:48:58 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>1, "comment"=>{"text"=>"comm"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "comm"], ["card_id", 1], ["created_at", "2020-04-06 22:48:58.655584"], ["updated_at", "2020-04-06 22:48:58.655584"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.5ms | Allocations: 157)
+Completed 201 Created in 20ms (Views: 2.3ms | ActiveRecord: 4.4ms | Allocations: 8428)
+
+
+Started GET "/boards/1" for ::1 at 2020-04-07 00:50:10 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"1"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1017ms (Views: 1014.4ms | ActiveRecord: 0.0ms | Allocations: 1816664)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:50:11 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `puts'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `puts'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `puts'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 56.5ms | Allocations: 30173)
+Completed 200 OK in 90ms (Views: 43.7ms | ActiveRecord: 25.1ms | Allocations: 44909)
+
+
+Started GET "/boards/1" for ::1 at 2020-04-07 00:50:49 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"1"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1115ms (Views: 1111.7ms | ActiveRecord: 0.0ms | Allocations: 1816679)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:50:50 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 41.7ms | Allocations: 26588)
+Completed 200 OK in 77ms (Views: 35.9ms | ActiveRecord: 17.6ms | Allocations: 41306)
+
+
+Started GET "/api/cards/2" for ::1 at 2020-04-07 00:51:04 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:18:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 2], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 19.5ms | Allocations: 9474)
+Completed 200 OK in 25ms (Views: 16.5ms | ActiveRecord: 4.8ms | Allocations: 12306)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 00:51:10 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>2, "comment"=>{"text"=>"First comment"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "First comment"], ["card_id", 2], ["created_at", "2020-04-06 22:51:10.752264"], ["updated_at", "2020-04-06 22:51:10.752264"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.4ms | Allocations: 158)
+Completed 201 Created in 18ms (Views: 1.7ms | ActiveRecord: 3.8ms | Allocations: 8598)
+
+
+Started GET "/cards/2" for ::1 at 2020-04-07 00:55:53 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"2"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 4529ms (Views: 4526.2ms | ActiveRecord: 0.0ms | Allocations: 1818916)
+
+
+Started GET "/api/cards/2" for ::1 at 2020-04-07 00:55:58 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 2], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 46.7ms | Allocations: 20734)
+Completed 200 OK in 92ms (Views: 37.3ms | ActiveRecord: 22.9ms | Allocations: 40747)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:55:58 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 31.5ms | Allocations: 7557)
+Completed 200 OK in 49ms (Views: 31.8ms | ActiveRecord: 4.5ms | Allocations: 14408)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 00:56:09 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 5.0ms | Allocations: 3285)
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 1.9ms | Allocations: 5387)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 00:56:20 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"First Comment For this one"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "First Comment For this one"], ["card_id", 4], ["created_at", "2020-04-06 22:56:20.857396"], ["updated_at", "2020-04-06 22:56:20.857396"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.3ms | Allocations: 160)
+Completed 201 Created in 10ms (Views: 1.4ms | ActiveRecord: 3.6ms | Allocations: 5489)
+
+
+Started GET "/cards/4" for ::1 at 2020-04-07 00:57:51 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"4"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+Started POST "/api/comments" for ::1 at 2020-04-07 00:57:51 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"First Comment For this one"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "First Comment For this one"], ["card_id", 4], ["created_at", "2020-04-06 22:57:51.311706"], ["updated_at", "2020-04-06 22:57:51.311706"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.2ms | Allocations: 97)
+Completed 201 Created in 12ms (Views: 0.9ms | ActiveRecord: 3.7ms | Allocations: 4743)
+
+
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3221ms (Views: 3220.8ms | ActiveRecord: 0.0ms | Allocations: 20843)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 00:57:54 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 7.7ms | Allocations: 3514)
+Completed 200 OK in 13ms (Views: 7.2ms | ActiveRecord: 2.0ms | Allocations: 5602)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:57:54 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 11.6ms | Allocations: 5699)
+Completed 200 OK in 17ms (Views: 10.1ms | ActiveRecord: 2.9ms | Allocations: 7775)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 00:58:01 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"Second ONe"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "Second ONe"], ["card_id", 4], ["created_at", "2020-04-06 22:58:01.687934"], ["updated_at", "2020-04-06 22:58:01.687934"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+Completed 201 Created in 12ms (Views: 0.7ms | ActiveRecord: 3.3ms | Allocations: 4534)
+
+
+Started GET "/cards/4" for ::1 at 2020-04-07 00:59:33 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"4"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3396ms (Views: 3395.5ms | ActiveRecord: 0.0ms | Allocations: 11825)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 00:59:37 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 6.7ms | Allocations: 3628)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 1.6ms | Allocations: 5714)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:59:37 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 13.5ms | Allocations: 5699)
+Completed 200 OK in 20ms (Views: 12.4ms | ActiveRecord: 2.7ms | Allocations: 7770)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 00:59:46 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"Third one"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "Third one"], ["card_id", 4], ["created_at", "2020-04-06 22:59:46.564598"], ["updated_at", "2020-04-06 22:59:46.564598"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+Completed 201 Created in 10ms (Views: 0.7ms | ActiveRecord: 3.0ms | Allocations: 4538)
+
+
+Started GET "/cards/4" for ::1 at 2020-04-07 01:02:28 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"4"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3406ms (Views: 3405.3ms | ActiveRecord: 0.0ms | Allocations: 11824)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 01:02:32 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 6.7ms | Allocations: 3743)
+Completed 200 OK in 11ms (Views: 6.3ms | ActiveRecord: 1.4ms | Allocations: 5828)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 01:02:32 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 12.4ms | Allocations: 5699)
+Completed 200 OK in 18ms (Views: 11.2ms | ActiveRecord: 2.5ms | Allocations: 7774)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 01:02:39 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"Fourth"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "Fourth"], ["card_id", 4], ["created_at", "2020-04-06 23:02:39.970722"], ["updated_at", "2020-04-06 23:02:39.970722"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.1ms | Allocations: 96)
+Completed 201 Created in 10ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 4525)
+
+
+Started GET "/cards/4" for ::1 at 2020-04-07 01:03:24 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"4"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3322ms (Views: 3321.5ms | ActiveRecord: 0.0ms | Allocations: 11817)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 01:03:27 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 9.7ms | Allocations: 3870)
+Completed 200 OK in 19ms (Views: 9.3ms | ActiveRecord: 2.5ms | Allocations: 6155)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 01:03:27 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 13.2ms | Allocations: 5804)
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 2.9ms | Allocations: 7983)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 01:03:32 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"Sixth"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "Sixth"], ["card_id", 4], ["created_at", "2020-04-06 23:03:32.420106"], ["updated_at", "2020-04-06 23:03:32.420106"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+Completed 201 Created in 13ms (Views: 0.9ms | ActiveRecord: 3.6ms | Allocations: 4532)
+
+
+Started GET "/cards/4" for ::1 at 2020-04-07 01:04:46 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"4"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3365ms (Views: 3363.7ms | ActiveRecord: 0.0ms | Allocations: 11810)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 01:04:50 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.4ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 7.6ms | Allocations: 3980)
+Completed 200 OK in 20ms (Views: 7.0ms | ActiveRecord: 1.5ms | Allocations: 6065)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 01:04:50 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 10.1ms | Allocations: 5699)
+Completed 200 OK in 17ms (Views: 9.5ms | ActiveRecord: 2.2ms | Allocations: 7771)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 01:04:53 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>4, "comment"=>{"text"=>"Seventh"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "Seventh"], ["card_id", 4], ["created_at", "2020-04-06 23:04:53.989413"], ["updated_at", "2020-04-06 23:04:53.989413"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.2ms | Allocations: 96)
+Completed 201 Created in 10ms (Views: 0.6ms | ActiveRecord: 3.5ms | Allocations: 4529)
+
+
+Started GET "/cards/4" for ::1 at 2020-04-07 01:06:25 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"4"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 4597ms (Views: 4594.1ms | ActiveRecord: 0.0ms | Allocations: 1818916)
+
+
+Started GET "/api/cards/4" for ::1 at 2020-04-07 01:06:30 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 47.5ms | Allocations: 21583)
+Completed 200 OK in 86ms (Views: 39.5ms | ActiveRecord: 20.5ms | Allocations: 40970)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 01:06:30 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 28.4ms | Allocations: 7559)
+Completed 200 OK in 45ms (Views: 28.5ms | ActiveRecord: 5.8ms | Allocations: 14396)
+
+
+Started POST "/api/cards" for ::1 at 2020-04-07 01:06:41 +0200
+Processing by Api::CardsController#create as JSON
+  Parameters: {"list_id"=>2, "card"=>{"title"=>"sec", "position"=>65535}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:18:in `block in create'
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("title", "list_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "sec"], ["list_id", 2], ["created_at", "2020-04-06 23:06:41.172361"], ["updated_at", "2020-04-06 23:06:41.172361"]]
+  ↳ app/controllers/api/cards_controller.rb:18:in `block in create'
+  [1m[36mAction Create (0.3ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", " added this card to Second"], ["actionable_type", "Card"], ["actionable_id", 6], ["created_at", "2020-04-06 23:06:41.174672"], ["updated_at", "2020-04-06 23:06:41.174672"]]
+  ↳ app/controllers/api/cards_controller.rb:75:in `create_actions'
+  Rendering api/cards/create.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 6]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/cards/create.json.jbuilder (Duration: 1.3ms | Allocations: 978)
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:17:in `create'
+Completed 201 Created in 12ms (Views: 1.7ms | ActiveRecord: 3.9ms | Allocations: 7354)
+
+
+Started GET "/api/cards/6" for ::1 at 2020-04-07 01:06:41 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 6]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 6]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 6], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 6.3ms | Allocations: 3285)
+Completed 200 OK in 12ms (Views: 6.1ms | ActiveRecord: 1.8ms | Allocations: 5388)
+
+
+Started POST "/api/comments" for ::1 at 2020-04-07 01:06:45 +0200
+Processing by Api::CommentsController#create as JSON
+  Parameters: {"card_id"=>6, "comment"=>{"text"=>"First"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/comments_controller.rb:5:in `create'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("text", "card_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["text", "First"], ["card_id", 6], ["created_at", "2020-04-06 23:06:45.824523"], ["updated_at", "2020-04-06 23:06:45.824523"]]
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/comments_controller.rb:8:in `create'
+  Rendering api/comments/create.json.jbuilder
+  Rendered api/comments/create.json.jbuilder (Duration: 0.3ms | Allocations: 157)
+Completed 201 Created in 12ms (Views: 1.4ms | ActiveRecord: 3.7ms | Allocations: 5276)
+
+
+Started GET "/boards/1" for ::1 at 2020-04-07 01:06:50 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"1"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 9613)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 01:06:51 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 6]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 10.2ms | Allocations: 6618)
+Completed 200 OK in 15ms (Views: 9.2ms | ActiveRecord: 2.2ms | Allocations: 8692)
+
+
+Started GET "/api/cards/6" for ::1 at 2020-04-07 01:06:54 +0200
+Processing by Api::CardsController#show as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:34:in `show'
+  Rendering api/cards/show.json.jbuilder
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/card.rb:10:in `board_id'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 6]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 6]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 6], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/show.json.jbuilder:5
+  Rendered api/cards/show.json.jbuilder (Duration: 5.6ms | Allocations: 3396)
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 1.4ms | Allocations: 5483)
+
+
