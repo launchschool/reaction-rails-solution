@@ -76,9 +76,9 @@ class Login extends React.Component {
   };
 
   render() {
-    if (this.props.isLoggedIn && this.state.redirect) {
-      return <Redirect to="/" />;
-    }
+    // if (this.props.isLoggedIn && this.state.redirect) {
+    //   return <Redirect to="/" />;
+    // }
     return (
       <div className="login-wrap">
         <h2>Login</h2>

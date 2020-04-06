@@ -6,10 +6,15 @@ Rails.application.routes.draw do
     resources :lists, only: [:create, :update]
     resources :cards, only: [:create, :show, :update]
     resources :comments, only: [:create]
+    resources :users, only: [:create]
   end
 
   get '/boards/:id', to: 'home#index'
   get '/cards/:id', to: 'home#index'
+  get "/login", to: 'home#index'
+  get "/signup", to: 'home#index'
+  post "/login", to: "auth#login"
+  post "/signup", to: "auth#signup"
 
   get '/ui/all_boards', to: 'ui#all_boards'
   get '/ui/single_board', to: 'ui#single_board'
