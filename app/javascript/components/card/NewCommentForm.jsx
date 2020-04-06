@@ -1,4 +1,5 @@
 import React from "react";
+import {createAbbreviation} from "../../utils/helpers";
 
 const NewCommentForm = props => {
   return (
@@ -6,7 +7,7 @@ const NewCommentForm = props => {
       <h2 className="comment-icon icon">Add Comment</h2>
       <div>
         <div className="member-container">
-          <div className="card-member">TP</div>
+          <div className="card-member">{createAbbreviation(props.user.name)}</div>
         </div>
         <div className="comment">
           <label>

@@ -1,4 +1,6 @@
 class Api::CommentsController < ApplicationController
+  before_action :require_login
+
   def create
     card = Card.find(params[:card_id])
     @comment = card.comments.new(comment_params)

@@ -4,6 +4,7 @@ import CardDescriptionContainer from "./CardDescriptionContainer";
 import moment from "moment";
 import { dueClass, formatDueDate } from "../../utils/helpers";
 import NewCommentFormContainer from "./NewCommentFormContainer";
+import {createAbbreviation} from "../../utils/helpers";
 
 const CardModal = props => {
   const labels = card =>
@@ -24,10 +25,10 @@ const CardModal = props => {
       comment.isAction ? (
         <li key={`action_${comment.id}`}>
           <div className="member-container">
-            <div className="card-member small-size">VR</div>
+            <div className="card-member small-size">{createAbbreviation(props.user.name)}</div>
           </div>
           <p>
-            <span className="member-name">Victor Reyes</span>{" "}
+            <span className="member-name">{props.user.name}</span>{" "}
             {comment.description}{" "}
             <small>{moment(comment.createdAt).fromNow()}</small>
           </p>
@@ -35,9 +36,9 @@ const CardModal = props => {
       ) : (
         <li key={`comment_${comment.id}`}>
           <div className="member-container">
-            <div className="card-member">TP</div>
+            <div className="card-member">{createAbbreviation(props.user.name)}</div>
           </div>
-          <h3>Taylor Peat</h3>
+          <h3>{props.user.name}</h3>
           <div className="comment static-comment">
             <span>{comment.text}</span>
           </div>

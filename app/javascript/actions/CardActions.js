@@ -36,13 +36,7 @@ export function deleteCardSuccess(cardId) {
 export function createCard(token, listId, card, callback) {
   return function(dispatch) {
     dispatch(createCardRequest);
-    // apiClient.createCard(token, listId, card, data => {
-    //   dispatch(createCardSuccess(data.card));
-    //   if (callback) {
-    //     callback(data.card);
-    //   }
-    // });
-    apiClient.createCard(listId, card, newCard => {
+    apiClient.createCard(token, listId, card, newCard => {
       dispatch(createCardSuccess(newCard));
       if (callback) {
         callback(newCard);
@@ -54,10 +48,7 @@ export function createCard(token, listId, card, callback) {
 export function fetchCard(token, id) {
   return function(dispatch) {
     dispatch(fetchCardRequest());
-    // apiClient.getCard(token, id, data => {
-    //   dispatch(fetchCardSuccess(data.card));
-    // });
-    apiClient.getCard(id, card => {
+    apiClient.getCard(token, id, card => {
       dispatch(fetchCardSuccess(card));
     });
   };
@@ -66,11 +57,7 @@ export function fetchCard(token, id) {
 export function updateCard(token, cardId, attrs, callback) {
   return function(dispatch) {
     dispatch(updateCardRequest());
-    // apiClient.updateCard(token, cardId, attrs, data => {
-    //   dispatch(updateCardSuccess(data.card));
-    //   if (callback) callback(data.card);
-    // });
-    apiClient.updateCard(cardId, attrs, updatedCard => {
+    apiClient.updateCard(token, cardId, attrs, updatedCard => {
       dispatch(updateCardSuccess(updatedCard));
       if (callback) callback(updatedCard);
     });
@@ -80,10 +67,6 @@ export function updateCard(token, cardId, attrs, callback) {
 export function deleteCard(token, cardId, callback) {
   return function(dispatch) {
     dispatch(deleteCardRequest());
-    // apiClient.deleteCard(token, cardId, data => {
-    //   dispatch(deleteCardSuccess(data.card.id));
-    //   if (callback) callback();
-    // });
     apiClient.deleteCard( cardId, data => {
       dispatch(deleteCardSuccess(data.card.id));
       if (callback) callback();

@@ -3,6 +3,12 @@ import { connect } from "react-redux";
 import * as actions from "../../actions/CommentActions";
 import NewCommentForm from "./NewCommentForm";
 
+const mapStateToProps = state => {
+  return {
+    user: state.authentication.user
+  }
+}
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   let token = localStorage.getItem("jwtToken");
   return {
@@ -38,6 +44,7 @@ class NewCommentFormContainer extends Component {
   render() {
     return (
       <NewCommentForm
+        user={this.props.user}
         onChange={this.handleChange}
         onSubmit={this.handleSubmit}
         comment={this.state.comment}
@@ -46,4 +53,4 @@ class NewCommentFormContainer extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewCommentFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(NewCommentFormContainer);

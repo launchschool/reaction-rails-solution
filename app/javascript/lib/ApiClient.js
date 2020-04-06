@@ -24,180 +24,123 @@ axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers.common["Accept"] = "application/json";
 
 const apiClient = {
-  // getBoards: function (token, callback, error) {
-  //   let config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   return axios
-  //     .get(routes.BOARDS_INDEX_URL, config)
-  //     .then(unwrapData)
-  //     .then(callback)
-  //     .catch((res) => logError(res, error));
-  // },
-  // createBoard: function (token, board, callback) {
-  //   let config = {
-  //     method: "POST",
-  //     url: routes.CREATE_BOARD_URL,
-  //     data: { board },
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   return axios(config).then(unwrapData).then(callback).catch(logError);
-  // },
-  // getBoard: function (token, id, callback, error) {
-  //   let config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   return axios
-  //     .get(routes.getBoardUrl(id), config)
-  //     .then(unwrapData)
-  //     .then(callback)
-  //     .catch((res) => logError(res, error));
-  // },
-  // createList: function (token, boardId, title, position, callback) {
-  //   let config = {
-  //     method: "POST",
-  //     url: routes.CREATE_LIST_URL,
-  //     data: { boardId, title, position },
-  //     headers: { Authorization: `Bearer + ${token}` },
-  //   };
-  //   return axios(config).then(unwrapData).then(callback).catch(logError);
-  // },
-  // updateList: function (token, listId, list, callback) {
-  //   let config = {
-  //     method: "PUT",
-  //     url: routes.updateListUrl(listId),
-  //     data: { list },
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   return axios(config).then(unwrapData).then(callback).catch(logError);
-  // },
-  // createCard: function (token, listId, card, callback) {
-  //   let config = {
-  //     method: "POST",
-  //     url: routes.CREATE_CARD_URL,
-  //     data: { listId, card },
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   return axios(config).then(unwrapData).then(callback).catch(logError);
-  // },
-  // getCard: function (token, id, callback, error) {
-  //   let config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   return axios
-  //     .get(routes.getCardUrl(id), config)
-  //     .then(unwrapData)
-  //     .then(callback)
-  //     .catch((res) => logError(res, error));
-  // },
-  // updateCard: function (token, cardId, attrs, callback) {
-  //   let config = {
-  //     method: "PUT",
-  //     url: routes.updateCardUrl(cardId),
-  //     data: { attrs },
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   return axios(config).then(unwrapData).then(callback).catch(logError);
-  // },
-  // deleteCard: function (token, cardId, callback) {
-  //   let config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-  //   return axios
-  //     .delete(routes.deleteCardUrl(cardId), config)
-  //     .then(unwrapData)
-  //     .then(callback)
-  //     .catch(logError);
-  // },
-  // createComment: function (token, cardId, text, callback) {
-  //   let config = {
-  //     method: "POST",
-  //     url: routes.CREATE_COMMENT_URL,
-  //     data: { cardId, text },
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   return axios(config).then(unwrapData).then(callback).catch(logError);
-  // },
-  // login: function (user, callback, error) {
-  //   return axios
-  //     .post(routes.LOGIN, { user })
-  //     .then(unwrapData)
-  //     .then(callback)
-  //     .catch((res) => logError(res, error));
-  // },
-  // signup: function (user, callback) {
-  //   return axios
-  //     .post(routes.SIGNUP, { user })
-  //     .then(unwrapData)
-  //     .then(callback)
-  //     .catch(logError);
-  // },
-  getBoards: function(callback) {
-    return axios.get(routes.BOARDS_INDEX_URL)
+  getBoards: function (token, callback, error) {
+    let config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return axios
+      .get(routes.BOARDS_INDEX_URL, config)
+      .then(unwrapData)
+      .then(callback)
+      .catch((res) => logError(res, error));
+  },
+  createBoard: function (token, board, callback) {
+    let config = {
+      method: "POST",
+      url: routes.CREATE_BOARD_URL,
+      data: { board },
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    return axios(config).then(unwrapData).then(callback).catch(logError);
+  },
+  getBoard: function (token, id, callback, error) {
+    let config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return axios
+      .get(routes.getBoardUrl(id), config)
+      .then(unwrapData)
+      .then(callback)
+      .catch((res) => logError(res, error));
+  },
+  createList: function (token, boardId, list, callback) {
+    let config = {
+      method: "POST",
+      url: routes.CREATE_LIST_URL,
+      data: { board_id: boardId, list },
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    return axios(config).then(unwrapData).then(callback).catch(logError);
+  },
+  updateList: function (token, listId, list, callback) {
+    let config = {
+      method: "PUT",
+      url: routes.updateListUrl(listId),
+      data: { list },
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    return axios(config).then(unwrapData).then(callback).catch(logError);
+  },
+  createCard: function (token, listId, card, callback) {
+    let config = {
+      method: "POST",
+      url: routes.CREATE_CARD_URL,
+      data: { list_id: listId, card },
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    return axios(config).then(unwrapData).then(callback).catch(logError);
+  },
+  getCard: function (token, id, callback, error) {
+    let config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return axios
+      .get(routes.getCardUrl(id), config)
+      .then(unwrapData)
+      .then(callback)
+      .catch((res) => logError(res, error));
+  },
+  updateCard: function (token, cardId, attrs, callback) {
+    let config = {
+      method: "PUT",
+      url: routes.updateCardUrl(cardId),
+      data: { card: attrs },
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    return axios(config).then(unwrapData).then(callback).catch(logError);
+  },
+  deleteCard: function (token, cardId, callback) {
+    let config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return axios
+      .delete(routes.deleteCardUrl(cardId), config)
       .then(unwrapData)
       .then(callback)
       .catch(logError);
   },
-  getBoard: function(boardId, callback) {
-    return axios.get(routes.getBoardUrl(boardId))
+  createComment: function (token, cardId, attrs, callback) {
+    let config = {
+      method: "POST",
+      url: routes.CREATE_COMMENT_URL,
+      data: { card_id: cardId, comment: attrs },
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    return axios(config).then(unwrapData).then(callback).catch(logError);
+  },
+  login: function (user, callback, error) {
+    return axios
+      .post(routes.LOGIN, { ...user })
+      .then(unwrapData)
+      .then(callback)
+      .catch((res) => logError(res, error));
+  },
+  signup: function (user, callback) {
+    return axios
+      .post(routes.SIGNUP, { user })
       .then(unwrapData)
       .then(callback)
       .catch(logError);
   },
-  createBoard: function(board, callback) {
-    return axios.post(routes.CREATE_BOARD_URL, { board })
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError);
-  },
-  createList: function(boardId, list, callback) {
-    return axios.post(routes.CREATE_LIST_URL, { board_id: boardId, list })
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError);
-  },
-  updateList: function(listId, updatedList, callback) {
-    return axios.put(
-      routes.updateListUrl(listId), { list: updatedList }
-    )
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError);
-  },
-  createCard: function(listId, card, callback) {
-    return axios.post(
-      routes.CREATE_CARD_URL, { list_id: listId, card }
-    )
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError);
-  },
-  getCard: function(cardId, callback) {
-    return axios.get(routes.getCardUrl(cardId))
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError);
-  },
-  updateCard: function(cardId, attrs, callback) {
-    return axios.put(routes.updateCardUrl(cardId), { card: attrs })
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError)
-  },
-  createComment: function(cardId, attrs, callback) {
-    return axios.post(routes.CREATE_COMMENT_URL, { card_id: cardId, comment: attrs })
-      .then(unwrapData)
-      .then(callback)
-      .catch(logError)
-  }
+
 };
 
 export default apiClient;

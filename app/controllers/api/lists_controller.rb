@@ -1,4 +1,5 @@
 class Api::ListsController < ApplicationController
+  before_action :require_login
   def create
     board = Board.find(params[:board_id])
     @list = List.new(list_params.merge(board: board))

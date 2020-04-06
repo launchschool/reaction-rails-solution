@@ -8,5 +8,5 @@ export const getCardUrl = id => `/api/cards/${id}`;
 export const updateCardUrl = cardId => `/api/cards/${cardId}`;
 export const CREATE_COMMENT_URL = "/api/comments";
 export const deleteCardUrl = cardId => `/api/cards/${cardId}`;
-export const LOGIN = "/sessions/login";
-export const SIGNUP = "/sessions/signup";
+export const LOGIN = "/login";
+export const SIGNUP = "/api/users";

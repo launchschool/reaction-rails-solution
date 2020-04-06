@@ -17,6 +17,13 @@ export const dueClass = card => {
   }
 };
 
+export const createAbbreviation = name => {
+  return name
+    .split(" ")
+    .map(name => name[0].toUpperCase())
+    .join("");
+};
+
 export const formatDueDate = dueDate => {
   const momentDate = moment(dueDate);
   let formatString;

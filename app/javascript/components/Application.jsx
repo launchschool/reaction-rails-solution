@@ -3,17 +3,6 @@ import { Route, Redirect } from "react-router-dom";
 import TopNav from "./shared/TopNav";
 import BoardContainer from "./board/BoardContainer";
 import CardModalContainer from "./card/CardModalContainer";
-import UISection from "./ui/UISection";
-import AllBoards from "./ui/AllBoards";
-import CardArchived from "./ui/CardArchived";
-import CardEditingDescription from "./ui/CardEditingDescription";
-import Card from "./ui/Card";
-import CopyCardPopover from "./ui/CopyCardPopover";
-import CreateBoard from "./ui/CreateBoard";
-import DueDatePopover from "./ui/DueDatePopover";
-import LabelsPopover from "./ui/LabelsPopover";
-import MoveCardPopover from "./ui/MoveCardPopover";
-import SingleBoard from "./ui/SingleBoard";
 import SignupContainer from "./user/SignupContainer";
 import LoginContainer from "./user/LoginContainer";
 import BoardsDashboardContainer from "./dashboard/BoardsDashboardContainer";
@@ -21,39 +10,39 @@ import AuthRoute from "./shared/AuthRoute";
 import { checkAuth } from "../utils/helpers";
 
 class Application extends React.Component {
-  // state = {
-  //   redirect: false,
-  // };
+  state = {
+    redirect: false,
+  };
 
-  // componentDidMount() {
-  //   if (checkAuth()) {
-  //     return;
-  //   }
-  //   this.props.onLogout();
-  // }
+  componentDidMount() {
+    if (checkAuth()) {
+      return;
+    }
+    this.props.onLogout();
+  }
 
-  // componentDidUpdate(prevProps) {
-  //   let logoutTimer;
+  componentDidUpdate(prevProps) {
+    let logoutTimer;
 
-  //   if (
-  //     prevProps.isLoggedIn !== this.props.isLoggedIn &&
-  //     this.props.isLoggedIn
-  //   ) {
-  //     logoutTimer = setTimeout(this.props.onLogout, 1000 * 60 * 60);
-  //     this.setState({ redirect: true });
-  //   } else if (
-  //     prevProps.isLoggedIn !== this.props.isLoggedIn &&
-  //     !this.props.isLoggedIn
-  //   ) {
-  //     this.setState({ redirect: false });
-  //   } else if (!this.props.token) {
-  //     clearTimeout(logoutTimer);
-  //   }
-  // }
+    if (
+      prevProps.isLoggedIn !== this.props.isLoggedIn &&
+      this.props.isLoggedIn
+    ) {
+      logoutTimer = setTimeout(this.props.onLogout, 1000 * 60 * 60);
+      this.setState({ redirect: true });
+    } else if (
+      prevProps.isLoggedIn !== this.props.isLoggedIn &&
+      !this.props.isLoggedIn
+    ) {
+      this.setState({ redirect: false });
+    } else if (!this.props.token) {
+      clearTimeout(logoutTimer);
+    }
+  }
   render() {
-    // if (!this.props.isLoggedIn && this.state.redirect) {
-    //   return <Redirect to="/login" />;
-    // }
+    if (!this.props.isLoggedIn && this.state.redirect) {
+      return <Redirect to="/login" />;
+    }
     return (
       <div>
         <TopNav
@@ -62,20 +51,13 @@ class Application extends React.Component {
           onLogout={this.props.onLogout}
         />
         <Route path="/login" exact component={LoginContainer} />
-        {/* <AuthRoute exact path="/" component={BoardsDashboardContainer} />
+        <AuthRoute exact path="/" component={BoardsDashboardContainer} />
         <AuthRoute
           exact
           path="/(boards|cards)/:id"
           component={BoardContainer}
-        /> */}
-        <Route exact path="/" component={BoardsDashboardContainer} />
-        <Route
-          exact
-          path="/(boards|cards)/:id"
-          component={BoardContainer}
         />
-        {/* <AuthRoute exact path="/cards/:id" component={CardModalContainer} /> */}
-        <Route exact path="/cards/:id" component={CardModalContainer} />
+        <AuthRoute exact path="/cards/:id" component={CardModalContainer} />
         <Route path="/signup" component={SignupContainer} />
       </div>
     );

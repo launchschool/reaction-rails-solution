@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {createAbbreviation} from "../../utils/helpers";
 
 const TopNav = props => {
-  const createAbbreviation = fullName => {
-    return fullName
-      .split(" ")
-      .map(name => name[0].toUpperCase())
-      .join("");
-  };
+
 
   let nav;
   if (props.isLoggedIn) {
@@ -15,9 +11,9 @@ const TopNav = props => {
       <ul className="user-info">
         <li className="create-icon icon"></li>
         <li className="split-button-1">
-          {createAbbreviation(props.user.fullName)}
+          {createAbbreviation(props.user.name)}
         </li>
-        <li className="split-button-2">{props.user.fullName}</li>
+        <li className="split-button-2">{props.user.name}</li>
         <li className="login-nav split-button-2">
           <Link to="/login" onClick={props.onLogout}>
             Log out

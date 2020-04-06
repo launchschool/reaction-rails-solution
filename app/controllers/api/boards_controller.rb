@@ -1,13 +1,14 @@
 class Api::BoardsController < ApplicationController
+  before_action :require_login
+
   def index
     @boards = Board.all
     render :index
   end
 
   def create
-    puts board_params
     @board = Board.new(board_params)
-
+    @board.user_id = session_user.id
     if @board.save
       render :create, status: :created
     else

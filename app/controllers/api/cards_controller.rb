@@ -1,4 +1,6 @@
 class Api::CardsController < ApplicationController
+  before_action :require_login
+
   def create
     list = List.find(params[:list_id])
     copy_from = params[:card][:copy_from]

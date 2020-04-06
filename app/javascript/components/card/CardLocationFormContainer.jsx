@@ -18,10 +18,10 @@ const mapStateToProps = (state, ownProps) => {
   return {
     boards: state.boards.sort(sortByTitle),
     lists: listSelectors
-      .boardListsSelector(state, ownProps.card.boardId)
+      .boardListsSelector(state, ownProps.card.board_id)
       .sort(sortByTitle),
     cards: cardSelectors
-      .listCards(state, ownProps.card.listId)
+      .listCards(state, ownProps.card.list_id)
       .sort((a, b) => a.position - b.position),
     state: state,
     user: state.user
@@ -54,14 +54,14 @@ class CardLocationFormContainer extends React.Component {
     this.setState(
       {
         selectedBoard: this.props.boards.find(board => {
-          return board.id === this.props.card.boardId;
+          return board.id === this.props.card.board_id;
         }),
         selectedPosition: this.currentCardPositionIndex(),
         boards: this.props.boards,
         lists: this.props.lists
       },
       () => {
-        this.selectList(this.props.card.listId);
+        this.selectList(this.props.card.list_id);
       }
     );
   }
@@ -83,12 +83,12 @@ class CardLocationFormContainer extends React.Component {
   };
 
   handleBoardChange = e => {
-    const selectedValue = e.target.value;
+    const selectedValue = +e.target.value;
     this.selectBoard(selectedValue);
   };
 
   handleListChange = e => {
-    const selectedValue = e.target.value;
+    const selectedValue = +e.target.value;
     this.selectList(selectedValue);
   };
 
@@ -101,8 +101,8 @@ class CardLocationFormContainer extends React.Component {
           lists: newLists
         },
         () => {
-          if (this.state.selectedBoard.id === this.props.card.boardId) {
-            this.selectList(this.props.card.listId);
+          if (this.state.selectedBoard.id === this.props.card.board_id) {
+            this.selectList(this.props.card.list_id);
           } else if (newLists.length) {
             this.selectList(newLists[0].id);
           } else {
@@ -161,7 +161,6 @@ class CardLocationFormContainer extends React.Component {
     } else {
       list = this.state.lists[0];
     }
-
     if (list) {
       const cards = cardSelectors
         .listCards(this.props.state, list.id)
@@ -191,8 +190,8 @@ class CardLocationFormContainer extends React.Component {
       },
       () => {
         if (
-          this.state.selectedBoard.id === this.props.card.boardId &&
-          this.state.selectedList.id === this.props.card.listId &&
+          this.state.selectedBoard.id === this.props.card.board_id &&
+          this.state.selectedList.id === this.props.card.list_id &&
           this.props.mode !== "copy"
         ) {
           this.selectPosition(this.currentCardPositionIndex());
@@ -265,8 +264,8 @@ class CardLocationFormContainer extends React.Component {
         currentPosition={this.currentCardPositionIndex()}
         selectedPositionHumanIndex={this.selectedPositionHumanIndex()}
         onPositionChange={this.handlePositionChange}
-        currentBoardId={this.props.card.boardId}
-        currentListId={this.props.card.listId}
+        currentBoardId={this.props.card.board_id}
+        currentListId={this.props.card.list_id}
         onBoardChange={this.handleBoardChange}
         onListChange={this.handleListChange}
         isSubmitDisabled={this.isSubmitDisabled()}

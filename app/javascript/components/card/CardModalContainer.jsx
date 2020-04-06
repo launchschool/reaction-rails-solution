@@ -24,7 +24,7 @@ const mapStateToProps = (state, ownProps) => {
     card,
     list,
     comments,
-    user: state.user
+    user: state.authentication.user
   };
 };
 

@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 class Signup extends React.Component {
   state = {
     password: "",
-    fullName: "",
+    name: "",
     email: ""
   };
 
@@ -16,12 +16,12 @@ class Signup extends React.Component {
     }
     return (
       <Formik
-        initialValues={{ fullName: "", email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={values => {
           this.props.onSignup(values);
         }}
         validationSchema={Yup.object().shape({
-          fullName: Yup.string().required("Required"),
+          name: Yup.string().required("Required"),
           email: Yup.string()
             .email()
             .required("Required"),
@@ -41,13 +41,13 @@ class Signup extends React.Component {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  name="fullName"
-                  value={values.fullName}
+                  name="name"
+                  value={values.name}
                   onChange={handleChange}
-                  className={errors.fullName && touched.fullName && "error"}
+                  className={errors.name && touched.name && "error"}
                 />
-                {errors.fullName && touched.fullName && (
-                  <div className="input-feedback">{errors.fullName}</div>
+                {errors.name && touched.name && (
+                  <div className="input-feedback">{errors.name}</div>
                 )}
                 <input
                   type="email"
