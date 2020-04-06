@@ -35,7 +35,7 @@ export function createList(token, boardId, title, position, callback) {
 export function updateList(token, listId, list, callback) {
   return function(dispatch) {
     dispatch(updateListRequest());
-    apiClient.updateList(listId, list, updatedList => {
+    apiClient.updateList(token, listId, list, updatedList => {
       dispatch(updateListSuccess(listId, updatedList));
       if (callback) {
         callback(updatedList);
