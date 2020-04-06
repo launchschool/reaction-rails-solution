@@ -12831,3 +12831,202 @@ Processing by Api::BoardsController#index as JSON
 Completed 200 OK in 24ms (Views: 9.6ms | ActiveRecord: 4.6ms | Allocations: 8255)
 
 
+Started GET "/" for ::1 at 2020-04-06 23:59:20 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 189)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 4392ms (Views: 4388.3ms | ActiveRecord: 0.0ms | Allocations: 1818907)
+
+
+Started GET "/api/boards" for ::1 at 2020-04-06 23:59:25 +0200
+Processing by Api::BoardsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 6.4ms | Allocations: 3966)
+Completed 200 OK in 29ms (Views: 6.0ms | ActiveRecord: 5.5ms | Allocations: 14258)
+
+
+Started POST "/login" for ::1 at 2020-04-06 23:59:34 +0200
+Started POST "/login" for ::1 at 2020-04-06 23:59:34 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1130)
+
+
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 942)
+
+
+Started POST "/login" for ::1 at 2020-04-06 23:59:36 +0200
+Started POST "/login" for ::1 at 2020-04-06 23:59:36 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+Processing by AuthController#login as JSON
+Can't verify CSRF token authenticity.
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1210)
+
+
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 1616)
+
+
+Started POST "/login" for ::1 at 2020-04-06 23:59:38 +0200
+Started POST "/login" for ::1 at 2020-04-06 23:59:38 +0200
+Processing by AuthController#login as JSON
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1609)
+
+
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1510)
+
+
+Started POST "/login" for ::1 at 2020-04-06 23:59:41 +0200
+Started POST "/login" for ::1 at 2020-04-06 23:59:41 +0200
+Processing by AuthController#login as JSON
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+  Parameters: {"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1594)
+
+
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1495)
+
+
+Started GET "/login" for ::1 at 2020-04-07 00:05:32 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 4832ms (Views: 4827.3ms | ActiveRecord: 0.0ms | Allocations: 1818912)
+
+
+Started POST "/login" for ::1 at 2020-04-07 00:05:44 +0200
+Started POST "/login" for ::1 at 2020-04-07 00:05:44 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"sssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"sssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.9ms | Allocations: 3994)
+
+
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"sssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"sssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 944)
+
+
+Started POST "/login" for ::1 at 2020-04-07 00:05:48 +0200
+Started POST "/login" for ::1 at 2020-04-07 00:05:48 +0200
+Processing by AuthController#login as JSON
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"sssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"sssss@gmail.com", "password"=>"[FILTERED]"}}
+  Parameters: {"email"=>"sssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"sssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sssss@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1204)
+
+
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 1692)
+
+
+Started GET "/login" for ::1 at 2020-04-07 00:07:29 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3590ms (Views: 3589.1ms | ActiveRecord: 0.0ms | Allocations: 11831)
+
+
+Started POST "/login" for ::1 at 2020-04-07 00:07:42 +0200
+Started POST "/login" for ::1 at 2020-04-07 00:07:42 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssss@gmail.com", "password"=>"[FILTERED]"}}
+Processing by AuthController#login as JSON
+Can't verify CSRF token authenticity.
+  Parameters: {"email"=>"ssssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssssss@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 1238)
+
+
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 1592)
+
+
+Started POST "/login" for ::1 at 2020-04-07 00:07:53 +0200
+Started POST "/login" for ::1 at 2020-04-07 00:07:53 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Processing by AuthController#login as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+  Parameters: {"email"=>"ssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 194ms (Views: 0.3ms | ActiveRecord: 4.6ms | Allocations: 6598)
+
+
+Completed 200 OK in 381ms (Views: 0.3ms | ActiveRecord: 189.8ms | Allocations: 5117)
+
+
+Started GET "/api/boards" for ::1 at 2020-04-07 00:07:53 +0200
+Processing by Api::BoardsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 7.0ms | Allocations: 3950)
+Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 2.5ms | Allocations: 8144)
+
+

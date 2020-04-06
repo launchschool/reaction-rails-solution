@@ -13,6 +13,12 @@ export function loginSuccess(data) {
   };
 }
 
+export function loginFailed() {
+  return {
+    type: types.LOGIN_FAILED,
+  };
+}
+
 export function signUpRequest() {
   return { type: types.SIGNUP_REQUEST };
 }
@@ -35,9 +41,14 @@ export function login(user, callback) {
   return function(dispatch) {
     dispatch(loginRequest());
     apiClient.login(user, data => {
-      if (data.failure) return;
-      populatedStorage(data);
-      dispatch(loginSuccess(data));
+      if (data.failure) {
+        dispatch(loginFailed());
+
+      } else {
+        populatedStorage(data);
+        dispatch(loginSuccess(data));
+      }
+
       if (callback) callback();
     });
   };

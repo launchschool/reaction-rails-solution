@@ -5,7 +5,8 @@ import * as actions from "../../actions/UserActions";
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.authentication.isLoggedIn
+    isLoggedIn: state.authentication.isLoggedIn,
+    invalidLogin: state.authentication.invalidLogin
   };
 };
 

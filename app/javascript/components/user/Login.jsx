@@ -105,6 +105,9 @@ class Login extends React.Component {
           {this.state.errors.password ? (
             <div className="input-feedback">Password can't be empty</div>
           ) : null}
+          {this.props.invalidLogin ? (
+            <div className="input-feedback">Invalid email or password</div>
+          ) : null}
           <button onClick={this.handleLogin}> Sign in </button>
           <Link to={"/signUp"}>
             {" "}

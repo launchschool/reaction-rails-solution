@@ -5,7 +5,7 @@ user = JSON.parse(user);
 let token = localStorage.getItem("jwtToken");
 const initialState = user
   ? { token, user, isLoggedIn: true }
-  : { isLoggedIn: false };
+  : { isLoggedIn: false, invalidLogin: false };
 
 export default function authentication(state = initialState, action) {
   switch (action.type) {
@@ -16,13 +16,18 @@ export default function authentication(state = initialState, action) {
         isLoggedIn: true
       };
     case types.LOGOUT_SUCCESS:
-      return { isLoggedIn: false };
+      return { isLoggedIn: false, invalidLogin: false };
     case types.SIGNUP_SUCCESS:
       return {
         token: action.payload.token,
         user: action.payload.user,
         isLoggedIn: true
       };
+    case types.LOGIN_FAILED:
+      return {
+        isLoggedIn: false,
+        invalidLogin: true
+      }
     default:
       return state;
   }
