@@ -57,7 +57,7 @@ class ExistingLists extends React.Component {
         cardId,
         {
           position: newPosition,
-          listId
+          list_id: listId
         },
         () => {
           el.setAttribute(
