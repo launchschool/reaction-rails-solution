@@ -44,8 +44,14 @@
     "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
-    "test": "jest",
-    "lint": "eslint app/javascript/**/* --color"
+    "build": "cd client && yarn install && yarn build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+  },
+  "engines": {
+    "yarn": "1.21.1",
+    "npm": "6.14.3",
+    "node": "12.14.1"
   },
   "jest": {
     "roots": [
