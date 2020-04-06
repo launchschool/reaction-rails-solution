@@ -23,7 +23,7 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
     ...ownProps,
     onDrop: function handleDrop(e) {
       const droppedEl = e.target;
-      const listId = droppedEl.dataset.listId;
+      const listId = +droppedEl.dataset.listId;
       const siblings = Array.prototype.slice.call(
         droppedEl.parentNode.childNodes
       );

@@ -30,9 +30,9 @@ class ExistingLists extends React.Component {
 
     this.cardDrake.on("drop", el => {
       const droppedEl = el;
-      const cardId = el.dataset.cardId;
+      const cardId = +el.dataset.cardId;
       const list = el.closest(".list-wrapper");
-      const listId = list.dataset.listId;
+      const listId = +list.dataset.listId;
       const siblings = Array.prototype.slice.call(
         droppedEl.parentNode.childNodes
       );

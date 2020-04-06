@@ -13030,3 +13030,453 @@ Processing by Api::BoardsController#index as JSON
 Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 2.5ms | Allocations: 8144)
 
 
+Started GET "/" for ::1 at 2020-04-07 00:26:13 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 4338ms (Views: 4335.1ms | ActiveRecord: 0.0ms | Allocations: 1818915)
+
+
+Started GET "/api/boards" for ::1 at 2020-04-07 00:26:18 +0200
+Processing by Api::BoardsController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 8.8ms | Allocations: 3966)
+Completed 200 OK in 32ms (Views: 7.7ms | ActiveRecord: 8.9ms | Allocations: 14254)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:26:19 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 47.6ms | Allocations: 24754)
+Completed 200 OK in 55ms (Views: 38.3ms | ActiveRecord: 11.5ms | Allocations: 27086)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:26:21 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>65535, "list_id"=>"1"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "position" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["position", 65535.0], ["updated_at", "2020-04-06 22:26:21.815918"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 33.3ms | Allocations: 7493)
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 44ms (Views: 30.7ms | ActiveRecord: 5.8ms | Allocations: 14000)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:26:25 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>65535, "list_id"=>"2"}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:105:in `create_actions'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mCACHE Board Load (0.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mAction Create (0.4ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "moved this card from First to Second"], ["actionable_type", "Card"], ["actionable_id", 1], ["created_at", "2020-04-06 22:26:25.339336"], ["updated_at", "2020-04-06 22:26:25.339336"]]
+  ↳ app/controllers/api/cards_controller.rb:108:in `create_actions'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "list_id" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["list_id", 2], ["updated_at", "2020-04-06 22:26:25.341136"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 3.4ms | Allocations: 2694)
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 19ms (Views: 3.3ms | ActiveRecord: 4.8ms | Allocations: 11384)
+
+
+Started PUT "/api/cards/4" for ::1 at 2020-04-07 00:26:27 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>65535, "list_id"=>"2"}, "id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 4.6ms | Allocations: 1874)
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 15ms (Views: 4.4ms | ActiveRecord: 2.0ms | Allocations: 6403)
+
+
+Started PUT "/api/cards/4" for ::1 at 2020-04-07 00:26:28 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>65535, "list_id"=>"2"}, "id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 2.7ms | Allocations: 1874)
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 11ms (Views: 2.7ms | ActiveRecord: 1.7ms | Allocations: 6403)
+
+
+Started PUT "/api/cards/4" for ::1 at 2020-04-07 00:26:30 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>65535, "list_id"=>"2"}, "id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 2.8ms | Allocations: 1874)
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 11ms (Views: 2.8ms | ActiveRecord: 1.6ms | Allocations: 6403)
+
+
+Started PUT "/api/lists/2" for ::1 at 2020-04-07 00:27:26 +0200
+Processing by Api::ListsController#update as JSON
+  Parameters: {"list"=>{"position"=>65535}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/lists_controller.rb:19:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/lists_controller.rb:21:in `update'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/lists_controller.rb:21:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/lists_controller.rb:21:in `update'
+  Rendering api/lists/update.json.jbuilder
+  Rendered api/lists/update.json.jbuilder (Duration: 0.3ms | Allocations: 167)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.6ms | Allocations: 5628)
+
+
+Started PUT "/api/lists/2" for ::1 at 2020-04-07 00:27:28 +0200
+Processing by Api::ListsController#update as JSON
+  Parameters: {"list"=>{"position"=>65535}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/lists_controller.rb:19:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/lists_controller.rb:21:in `update'
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/lists_controller.rb:21:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/lists_controller.rb:21:in `update'
+  Rendering api/lists/update.json.jbuilder
+  Rendered api/lists/update.json.jbuilder (Duration: 0.1ms | Allocations: 105)
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 4827)
+
+
+Started GET "/boards/1" for ::1 at 2020-04-07 00:28:40 +0200
+Processing by HomeController#index as HTML
+  Parameters: {"id"=>"1"}
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/LS/capstone_ta/reaction_solution/public/packs
+Completed 200 OK in 3400ms (Views: 3399.1ms | ActiveRecord: 0.0ms | Allocations: 11829)
+
+
+Started GET "/api/boards/1" for ::1 at 2020-04-07 00:28:44 +0200
+Processing by Api::BoardsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/boards_controller.rb:24:in `show'
+  Rendering api/boards/show.json.jbuilder
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."board_id" = $1[0m  [["board_id", 1]]
+  ↳ app/views/api/boards/show.json.jbuilder:3
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 1], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."list_id" = $1 AND "cards"."archived" = $2[0m  [["list_id", 2], ["archived", false]]
+  ↳ app/views/api/boards/show.json.jbuilder:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  Rendered api/boards/show.json.jbuilder (Duration: 10.7ms | Allocations: 5804)
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 2.6ms | Allocations: 7980)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:28:47 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>32767.5, "list_id"=>2}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "position" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["position", 32767.5], ["updated_at", "2020-04-06 22:28:47.572222"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.3ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 4.6ms | Allocations: 2679)
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 19ms (Views: 4.3ms | ActiveRecord: 5.0ms | Allocations: 8150)
+
+
+Started PUT "/api/cards/4" for ::1 at 2020-04-07 00:28:49 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>16383.75, "list_id"=>2}, "id"=>"4"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "position" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["position", 16383.75], ["updated_at", "2020-04-06 22:28:49.340720"], ["id", 4]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 4]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 4], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 2.8ms | Allocations: 1874)
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 15ms (Views: 2.9ms | ActiveRecord: 4.0ms | Allocations: 7133)
+
+
+Started PUT "/api/cards/2" for ::1 at 2020-04-07 00:28:51 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>24575.625, "list_id"=>2}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:105:in `create_actions'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mCACHE Board Load (0.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mAction Create (0.3ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "moved this card from First to Second"], ["actionable_type", "Card"], ["actionable_id", 2], ["created_at", "2020-04-06 22:28:51.610604"], ["updated_at", "2020-04-06 22:28:51.610604"]]
+  ↳ app/controllers/api/cards_controller.rb:108:in `create_actions'
+  [1m[36mCard Update (0.2ms)[0m  [1m[33mUPDATE "cards" SET "list_id" = $1, "position" = $2, "updated_at" = $3 WHERE "cards"."id" = $4[0m  [["list_id", 2], ["position", 24575.625], ["updated_at", "2020-04-06 22:28:51.611937"], ["id", 2]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 2], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 2.4ms | Allocations: 2151)
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 19ms (Views: 2.4ms | ActiveRecord: 4.8ms | Allocations: 10462)
+
+
+Started PUT "/api/cards/1" for ::1 at 2020-04-07 00:28:53 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>65535, "list_id"=>1}, "id"=>"1"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:105:in `create_actions'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mCACHE Board Load (0.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mAction Create (0.3ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "moved this card from Second to First"], ["actionable_type", "Card"], ["actionable_id", 1], ["created_at", "2020-04-06 22:28:53.578605"], ["updated_at", "2020-04-06 22:28:53.578605"]]
+  ↳ app/controllers/api/cards_controller.rb:108:in `create_actions'
+  [1m[36mCard Update (0.2ms)[0m  [1m[33mUPDATE "cards" SET "list_id" = $1, "position" = $2, "updated_at" = $3 WHERE "cards"."id" = $4[0m  [["list_id", 1], ["position", 65535.0], ["updated_at", "2020-04-06 22:28:53.580584"], ["id", 1]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 1]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 1], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 3.1ms | Allocations: 2821)
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 22ms (Views: 3.1ms | ActiveRecord: 5.1ms | Allocations: 11138)
+
+
+Started PUT "/api/cards/2" for ::1 at 2020-04-07 00:28:55 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>32767.5, "list_id"=>1}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:105:in `create_actions'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mCACHE Board Load (0.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:107:in `create_actions'
+  [1m[36mAction Create (0.3ms)[0m  [1m[32mINSERT INTO "actions" ("description", "actionable_type", "actionable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "moved this card from Second to First"], ["actionable_type", "Card"], ["actionable_id", 2], ["created_at", "2020-04-06 22:28:55.774934"], ["updated_at", "2020-04-06 22:28:55.774934"]]
+  ↳ app/controllers/api/cards_controller.rb:108:in `create_actions'
+  [1m[36mCard Update (0.2ms)[0m  [1m[33mUPDATE "cards" SET "list_id" = $1, "position" = $2, "updated_at" = $3 WHERE "cards"."id" = $4[0m  [["list_id", 1], ["position", 32767.5], ["updated_at", "2020-04-06 22:28:55.776253"], ["id", 2]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 2], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 2.5ms | Allocations: 2282)
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 18ms (Views: 2.5ms | ActiveRecord: 3.0ms | Allocations: 10590)
+
+
+Started PUT "/api/cards/2" for ::1 at 2020-04-07 00:28:56 +0200
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"position"=>131071, "list_id"=>1}, "id"=>"2"}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `session_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:29:in `session_user'
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:42:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:46:in `block in update'
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "position" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["position", 131071.0], ["updated_at", "2020-04-06 22:28:56.800924"], ["id", 2]]
+  ↳ app/controllers/api/cards_controller.rb:48:in `block in update'
+  Rendering api/cards/update.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."card_id" = $1[0m  [["card_id", 2]]
+  ↳ app/models/card.rb:17:in `comments_count'
+  [1m[36mAction Load (0.2ms)[0m  [1m[34mSELECT "actions".* FROM "actions" WHERE "actions"."actionable_id" = $1 AND "actions"."actionable_type" = $2[0m  [["actionable_id", 2], ["actionable_type", "Card"]]
+  ↳ app/views/api/cards/update.json.jbuilder:4
+  Rendered api/cards/update.json.jbuilder (Duration: 3.2ms | Allocations: 2265)
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:45:in `update'
+Completed 200 OK in 14ms (Views: 3.1ms | ActiveRecord: 4.0ms | Allocations: 7522)
+
+
