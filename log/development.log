@@ -14618,3 +14618,235 @@ Processing by Api::CardsController#show as JSON
 Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 1.4ms | Allocations: 5483)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (107.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "reaction_development"[0m
+  [1m[35m (106.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "reaction_test"[0m
+  [1m[35m (307.6ms)[0m  [1m[35mCREATE DATABASE "reaction_development" ENCODING = 'unicode'[0m
+  [1m[35m (239.6ms)[0m  [1m[35mCREATE DATABASE "reaction_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "actions" CASCADE[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "actions" ("id" bigserial primary key, "description" character varying DEFAULT '', "actionable_type" character varying, "actionable_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_actions_on_actionable_type_and_actionable_id" ON "actions"  ("actionable_type", "actionable_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "boards" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "boards" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "description" text DEFAULT '' NOT NULL, "labels" character varying[] DEFAULT '{}', "list_id" integer, "position" float DEFAULT 65535.0 NOT NULL, "archived" boolean DEFAULT FALSE, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "due_date" timestamp, "completed" boolean DEFAULT FALSE)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" text DEFAULT '', "card_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_card_id" ON "comments"  ("card_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "lists" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "lists" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "board_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "position" float DEFAULT 65535.0 NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200406073045)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191028085449),
+(20200405193201),
+(20200405193239),
+(20200405193312),
+(20200405193336),
+(20200405193405),
+(20200405193431),
+(20200405193502),
+(20200405193535),
+(20200405193602),
+(20200405193623),
+(20200405193640),
+(20200405193713),
+(20200405193733),
+(20200405193749),
+(20200405193807),
+(20200406071842);
+
+[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-07 08:52:09.189826"], ["updated_at", "2020-04-07 08:52:09.189826"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5db1ef6bb3fb8c2006ce19f1a0e53ad3b0904f50"], ["created_at", "2020-04-07 08:52:09.196394"], ["updated_at", "2020-04-07 08:52:09.196394"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "actions" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "actions" ("id" bigserial primary key, "description" character varying DEFAULT '', "actionable_type" character varying, "actionable_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_actions_on_actionable_type_and_actionable_id" ON "actions"  ("actionable_type", "actionable_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "boards" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "boards" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "user_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "description" text DEFAULT '' NOT NULL, "labels" character varying[] DEFAULT '{}', "list_id" integer, "position" float DEFAULT 65535.0 NOT NULL, "archived" boolean DEFAULT FALSE, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "due_date" timestamp, "completed" boolean DEFAULT FALSE)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" text DEFAULT '', "card_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_card_id" ON "comments"  ("card_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "lists" CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "lists" ("id" bigserial primary key, "title" character varying DEFAULT '' NOT NULL, "board_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "position" float DEFAULT 65535.0 NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200406073045)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191028085449),
+(20200405193201),
+(20200405193239),
+(20200405193312),
+(20200405193336),
+(20200405193405),
+(20200405193431),
+(20200405193502),
+(20200405193535),
+(20200405193602),
+(20200405193623),
+(20200405193640),
+(20200405193713),
+(20200405193733),
+(20200405193749),
+(20200405193807),
+(20200406071842);
+
+[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-07 08:52:09.300030"], ["updated_at", "2020-04-07 08:52:09.300030"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-07 08:52:09.305840"], ["key", "environment"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "5db1ef6bb3fb8c2006ce19f1a0e53ad3b0904f50"], ["created_at", "2020-04-07 08:52:09.310850"], ["updated_at", "2020-04-07 08:52:09.310850"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4539074736204228780)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4539074736204228780)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-04-07 10:52:23 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 360)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srdjan/Desktop/Capstone_Support_Final/reaction-rails-solution/public/packs
+Completed 200 OK in 11781ms (Views: 11776.2ms | ActiveRecord: 0.0ms | Allocations: 2564327)
+
+
+Started POST "/login" for ::1 at 2020-04-07 10:52:39 +0200
+Started POST "/login" for ::1 at 2020-04-07 10:52:39 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"srdjan_05@yahoo.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"srdjan_05@yahoo.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "srdjan_05@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 4447)
+
+
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"srdjan_05@yahoo.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"srdjan_05@yahoo.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "srdjan_05@yahoo.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 947)
+
+
+Started POST "/api/users" for ::1 at 2020-04-07 10:52:52 +0200
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"Srdan Coric", "email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:3:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Srdan Coric"], ["email", "ssss@gmail.com"], ["password_digest", "$2a$12$x1ycUT2pmu0e1nmUu5kQMe.0RbH0B7qbLqvzmgE9MNYKN7f0h8nNy"], ["created_at", "2020-04-07 08:52:52.358499"], ["updated_at", "2020-04-07 08:52:52.358499"]]
+  ↳ app/controllers/api/users_controller.rb:3:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:3:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["email", "ssss@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 203ms (ActiveRecord: 7.9ms | Allocations: 9082)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/application_controller.rb:5:in `encode_token'
+app/controllers/api/users_controller.rb:6:in `create'
+Started GET "/signup" for ::1 at 2020-04-07 10:53:42 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 986ms (Views: 982.9ms | ActiveRecord: 0.0ms | Allocations: 1816705)
+
+
+Started POST "/login" for ::1 at 2020-04-07 10:53:49 +0200
+Started POST "/login" for ::1 at 2020-04-07 10:53:49 +0200
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 200 OK in 197ms (Views: 0.3ms | ActiveRecord: 6.5ms | Allocations: 10478)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 379ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 5834)
+
+
+Started GET "/api/boards" for ::1 at 2020-04-07 10:53:49 +0200
+Processing by Api::BoardsController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `session_user'
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 3.0ms | Allocations: 1058)
+Completed 200 OK in 9ms (Views: 2.6ms | ActiveRecord: 1.9ms | Allocations: 5267)
+
+
+Started POST "/login" for ::1 at 2020-04-07 10:53:57 +0200
+Started POST "/login" for ::1 at 2020-04-07 10:53:57 +0200
+Processing by AuthController#login as JSON
+Processing by AuthController#login as JSON
+  Parameters: {"email"=>"ssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+  Parameters: {"email"=>"ssss@gmail.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"ssss@gmail.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Can't verify CSRF token authenticity.
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ssss@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 182ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1479)
+
+
+  ↳ app/controllers/auth_controller.rb:3:in `login'
+Completed 200 OK in 363ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2175)
+
+
+Started GET "/api/boards" for ::1 at 2020-04-07 10:53:57 +0200
+Processing by Api::BoardsController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:27:in `session_user'
+  Rendering api/boards/index.json.jbuilder
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/api/boards/index.json.jbuilder:1
+  Rendered api/boards/index.json.jbuilder (Duration: 1.7ms | Allocations: 633)
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 0.7ms | Allocations: 1733)
+
+
