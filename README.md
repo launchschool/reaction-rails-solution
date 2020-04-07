@@ -18,6 +18,7 @@ The directory structure is basically the same as any rails application but with 
 - Run `bundle install` from the root directory to install ruby dependencies
 - Run `yarn install` to install npm packages
 - Run `rails db:setup` to setup the database
+- Inside of the `config` folder add file `local_env.yml` with the content `JWT_SECRET: "My secret JWT"`.
 - `rails s` to start the application
 
 ## Testing Rails API's
